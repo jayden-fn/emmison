@@ -1,0 +1,100 @@
+/* -------------------------------------- */
+/* 0. Global Reset and Variables */
+/* -------------------------------------- */
+
+:root {
+    /* Brand Colors for Trust, Tech, and Green */
+    --color-primary-blue: #0F4C81;     /* Deep Trust Blue */
+    --color-secondary-green: #38A3A5;  /* Clean Teal/Green (Used for CTA/Accents) */
+    --color-text-dark: #333333;
+    --color-background-light: #F4F7F9; /* Off-White/Light Gray for clean background */
+    --color-white: #FFFFFF;
+    --shadow-subtle: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+/* Reset and Global Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', sans-serif; /* Requires the font link in base.html or a link tag in the template */
+    line-height: 1.6;
+    color: var(--color-text-dark);
+    background-color: var(--color-background-light);
+}
+
+/* -------------------------------------- */
+/* 1. Typography and Content Styles */
+/* -------------------------------------- */
+
+.container {
+    padding-top: 50px; /* Replaces the initial <br> tag for better spacing */
+    padding-bottom: 50px;
+    /* Assumes base.html already defines max-width for .container */
+}
+
+/* Styled Heading: "Django Demo Apps" */
+.emissions-heading {
+    font-size: 2.5em;
+    font-weight: 700;
+    color: var(--color-primary-blue);
+    margin-bottom: 5px;
+}
+
+/* Styled Subheading: "A CRUD Application" */
+.emissions-subheading {
+    font-size: 1.4em;
+    font-weight: 400;
+    color: var(--color-secondary-green);
+    margin-bottom: 20px;
+}
+
+/* Horizontal Rule Styling */
+.emissions-hr {
+    border: 0;
+    height: 3px;
+    width: 150px; /* Make it short and centered */
+    background-color: var(--color-secondary-green);
+    opacity: 0.8;
+    margin: 20px auto;
+}
+
+/* -------------------------------------- */
+/* 2. Call-to-Action (CTA) Button Styling */
+/* -------------------------------------- */
+
+/* Target the specific CTA button class and override Bootstrap */
+.emissions-cta-btn {
+    /* Use your brand accent color */
+    background-color: var(--color-secondary-green) !important;
+    border-color: var(--color-secondary-green) !important;
+    color: var(--color-white) !important;
+    
+    /* Modern Button Styling */
+    font-weight: 600;
+    padding: 12px 30px;
+    border-radius: 50px; /* Rounded pill shape for modern look */
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    
+    /* Smooth transition for interaction */
+    transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+}
+
+.emissions-cta-btn:hover {
+    background-color: #2F8D90 !important; /* Slightly darker green */
+    border-color: #2F8D90 !important;
+    transform: translateY(-3px); /* Lifts the button */
+    box-shadow: 0 8px 15px rgba(56, 163, 165, 0.4); /* Shadow matching the button color */
+}
+
+/* Ensures the button stays responsive */
+@media (max-width: 600px) {
+    .emissions-cta-btn {
+        width: 100%; /* Full width on small screens */
+        padding: 15px 0;
+    }
+}
