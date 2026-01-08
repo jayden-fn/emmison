@@ -1,0 +1,74 @@
+{% extends 'base.html' %}
+
+{% block title %}Request a Booking{% endblock %}
+
+{% block content %}
+  <main class="container">
+    <h1>Request a Booking</h1>
+
+    {% if success %}
+      <div class="results">
+        <h2>Booking Submitted</h2>
+        <p>Thanks, {{ submitted.name }} — we've received your booking request.</p>
+        <ul>
+          <li>Email: {{ submitted.email }}</li>
+          <li>Phone: {{ submitted.phone }}</li>
+          <li>Service: {{ submitted.service }}</li>
+          <li>Date: {{ submitted.date }}</li>
+        </ul>
+      </div>
+    {% else %}
+      <form method="post" class="booking-form" novalidate>
+        {% csrf_token %}
+
+        {% if form.non_field_errors %}
+          <div class="error">{{ form.non_field_errors }}</div>
+        {% endif %}
+
+        <label>Name:
+          {{ form.name }}
+          {% if form.name.errors %}
+            <div class="error">{{ form.name.errors }}</div>
+          {% endif %}
+        </label>
+
+        <label>Email:
+          {{ form.email }}
+          {% if form.email.errors %}
+            <div class="error">{{ form.email.errors }}</div>
+          {% endif %}
+        </label>
+
+        <label>Phone:
+          {{ form.phone }}
+          {% if form.phone.errors %}
+            <div class="error">{{ form.phone.errors }}</div>
+          {% endif %}
+        </label>
+
+        <label>Service:
+          {{ form.service }}
+          {% if form.service.errors %}
+            <div class="error">{{ form.service.errors }}</div>
+          {% endif %}
+        </label>
+
+        <label>Preferred date:
+          {{ form.date }}
+          {% if form.date.errors %}
+            <div class="error">{{ form.date.errors }}</div>
+          {% endif %}
+        </label>
+
+        <label>Message:
+          {{ form.message }}
+          {% if form.message.errors %}
+            <div class="error">{{ form.message.errors }}</div>
+          {% endif %}
+        </label>
+
+        <button class="btn" type="submit">Send booking request</button>
+      </form>
+    {% endif %}
+  </main>
+{% endblock %}
